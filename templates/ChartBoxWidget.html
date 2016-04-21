@@ -1,0 +1,292 @@
+<div data-dojo-type="dijit/layout/BorderContainer"
+	data-dojo-props="design:'headline', gutters:true, liveSplitters:true"
+	id="window" class="ct-layout-grid container-fluid">
+	<div class="chartDIV ct-layout-grid container-fluid"
+		data-dojo-attach-point="chartBox"
+		data-dojo-type="dijit/layout/ContentPane"
+		data-dojo-props="splitter:true,region:'center'" id="${id}chart"></div>
+	<div data-dojo-type="dijit/layout/ContentPane"
+		data-dojo-props="splitter:true, region:'bottom'" id="controls"
+		class="ct-layout-grid container-fluid">
+		<div id="chartControls" class="input-block">
+			<div class="box row ct-layout-grid container-fluid" id="sortSelect">
+				<div class="col-md-1">
+					<label><b>Sort</b></label>
+				</div>
+				<div class="col-md-2">
+					<select id="sortSelect" data-dojo-type="dijit/form/Select"
+						data-dojo-attach-point="sortSelect"
+						data-dojo-attach-event="onChange:sort">
+						<option value="NONE">None</option>
+						<option value="DESC">Descending</option>
+						<option value="ASC">Ascending</option>
+					</select>
+				</div>
+				<div class="col-md-2">
+					<button data-dojo-type="dijit/form/Button"
+						data-dojo-props="'class':'button'"
+						data-dojo-attach-event="onClick:urlChanged">Change
+						Service</button>
+				</div>
+			</div>
+		</div>
+		<div class="box" id="firstBox">
+			<h2 id="settingsHeader">
+				<b>Chart Settings</b>
+			</h2>
+		</div>
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-1">
+				<label><b>Service</b></label>
+			</div>
+			<div class="col-md-3">
+				<div data-dojo-type="dojo/store/Memory" data-dojo-id="layerStore"
+					data-dojo-attach-point="layerStore"></div>
+				<select data-dojo-type="dijit/form/ComboBox"
+					data-dojo-props="store:layerStore, searchAttr:'id'"
+					data-dojo-attach-point="urlTextBox"></select>
+			</div>
+			<div class="col-md-2">
+				<button data-dojo-type="dijit/form/Button"
+					data-dojo-props="'class':'button'"
+					data-dojo-attach-event="onClick:urlChanged">Change Service</button>
+			</div>
+		</div>
+
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-1">
+				<label><b>Chart Typ</b></label>
+			</div>
+			<div class="col-md-3">
+				<select name="Chart Select" data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="chartSelect"
+					data-dojo-attach-event="onChange:checkChartType">
+					<option value="bar" selected="selected">Bar Chart</option>
+					<option value="bar-horizontal">Horizontal Chart</option>
+					<option value="grouped">Grouped Bar Chart</option>
+					<option value="scatter">Colored Scatterplot</option>
+					<option value="bubble">Bubble Scatterplot</option>
+					<option value="pie">Pie Chart</option>
+					<option value="time">Time Line</option>
+				</select>
+			</div>
+		</div>
+
+		<b id="xAxisTableHeading">X-Axis</b>
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-3">
+				<label id="xAxisNameHeading" class="block">Name</label>
+			</div>
+			<div class="col-md-3">
+				<label id="xAxisValueHeading">Value</label>
+			</div>
+			<div class="col-md-3">
+				<label id="xAxisValue2Heading">Value2</label>
+			</div>
+			<div class="col-md-3">
+				<label id="xAxisValue3Heading">Value3</label>
+			</div>
+		</div>
+
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-3">
+				<input type="text" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="trim:true" data-dojo-attach-point="xAxisName"
+					class="input-block" />
+			</div>
+			<div class="col-md-3" id="xAxisValue">
+				<select name="Chart Select" data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="xAxisValue" class="input-block">
+				</select>
+			</div>
+
+			<div class="col-md-3" id="xAxisValue2">
+				<select name="Chart Select" data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="xAxisValue2" class="input-block">
+				</select>
+			</div>
+
+			<div class="col-md-3" id="xAxisValue3">
+				<select name="Chart Select" data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="xAxisValue3" class="input-block">
+				</select>
+			</div>
+		</div>
+
+
+		<b id="yAxisTableHeading">Y-Axis</b>
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-3">
+				<label id="yAxisNameHeading" class="block">Name</label>
+			</div>
+			<div class="col-md-3">
+				<label id="yAxisValueHeading">Value</label>
+			</div>
+			<div class="col-md-3">
+				<label id="yAxisName2Heading">Name for Scatterplot</label>
+			</div>
+			<div class="col-md-3">
+				<label id="yAxisValue2Heading">Color</label>
+			</div>
+		</div>
+
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-3" id="yAxisName">
+				<input type="text" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="trim:true" data-dojo-attach-point="yAxisName"
+					class="input-block" />
+			</div>
+			<div class="col-md-3" id="yAxisValue">
+				<select name="Chart Select" data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="yAxisValue" class="input-block">
+				</select>
+			</div>
+			<div class="col-md-3" id="yAxisName2">
+				<input type="text" data-dojo-type="dijit/form/TextBox"
+					data-dojo-props="trim:true" data-dojo-attach-point="yAxisName2"
+					class="input-block" /> </select>
+			</div>
+
+			<div class="col-md-3" id="yAxisValue2">
+				<select name="Chart Select" data-dojo-type="dijit/form/Select"
+					data-dojo-attach-point="yAxisValue2" class="input-block">
+				</select>
+			</div>
+		</div>
+
+
+
+
+		<div class="collapseMenu box row ct-layout-grid container-fluid">
+			<div class="col-md-3">
+				<label><b>Only use selcted Data from Result Center</b></label>
+			</div>
+			<div class="col-md-1">
+				<input id="onlyUseResultCenterData"
+					data-dojo-type="dijit/form/CheckBox"
+					data-dojo-attach-point="onlyUseResultCenterData" value="agreed"
+					unchecked class="align-left" />
+			</div>
+		</div>
+
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-3">
+				<label><b>Create New Field</b></label>
+			</div>
+			<div class="col-md-1">
+				<input id="queryCheckBox" data-dojo-type="dijit/form/CheckBox"
+					data-dojo-attach-point="queryCheckBox" value="agreed" unchecked
+					data-dojo-attach-event="onClick:toggleQuery" class="align-left" />
+			</div>
+		</div>
+
+		<div class="collapsebox" id="queryBox">
+			<div class="box row ct-layout-grid container-fluid">
+				<div class="col-md-3">
+					<label>Field To Group By</label>
+				</div>
+				<div class="col-md-1">
+					<label>Statistical Operator</label>
+				</div>
+				<div class="col-md-3">
+					<label>Field to use for Calculation</label>
+				</div>
+				<div class="col-md-3">
+					<label>New Field Name</label>
+				</div>
+				<div class="col-md-1"></div>
+			</div>
+
+			<div class="box row ct-layout-grid container-fluid">
+				<div class="col-md-3">
+					<select name="Field To Group By" data-dojo-type="dijit/form/Select"
+						data-dojo-attach-point="queryGroupField" class="input-block"></select>
+				</div>
+				<div class="col-md-1">
+					<select data-dojo-type="dijit/form/Select"
+						data-dojo-attach-point="queryStatisticalOperator"
+						id="queryStatisticalOperator" class="input-block">
+						<option value="count">Count</option>
+						<option value="sum">Sum</option>
+						<option value="min">Minimum</option>
+						<option value="max">Maximum</option>
+						<option value="avg">Average</option>
+						<option value="stddev">Standard Deviation</option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<select name="Field to use for Calculation"
+						data-dojo-type="dijit/form/Select"
+						data-dojo-attach-point="queryFieldToCalculate" class="input-block">
+					</select>
+				</div>
+				<div class="col-md-3">
+					<input type="text" data-dojo-type="dijit/form/TextBox"
+						data-dojo-props="trim:true"
+						data-dojo-attach-point="queryNewFieldName" class="input-block" />
+				</div>
+				<div class="col-md-2">
+					<button data-dojo-type="dijit/form/Button"
+						data-dojo-props="'class':'button'"
+						data-dojo-attach-event="onClick:addQueryField"
+						data-dojo-attach-point="queryButton" id="queryButton"
+						class="input-block">Add Field</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="box row ct-layout-grid container-fluid">
+			<div class="col-md-3">
+				<label><b>Use Filter</b></label>
+			</div>
+			<div class="col-md-1">
+				<input id="whereCheckBox" data-dojo-type="dijit/form/CheckBox"
+					data-dojo-attach-point="whereCheckBox" value="agreed" unchecked
+					data-dojo-attach-event="onClick:toggleWhere" />
+			</div>
+		</div>
+
+		<div class="collapsebox" id="whereBox">
+			<div class="box row ct-layout-grid container-fluid">
+				<div class="col-md-1">
+					<label>Filter</label>
+				</div>
+				<div class="col-md-3">
+					<select data-dojo-type="dijit/form/Select"
+						data-dojo-attach-point="whereQueryField"
+						data-dojo-attach-event="onChange:populateWhereCondition"></select>
+				</div>
+				<div class="col-md-2">
+					<select data-dojo-type="dijit/form/Select"
+						data-dojo-attach-point="whereExpression">
+						<option value="=">=</option>
+						<option value="!=">!=</option>
+						<option value="<"><</option>
+						<option value=">">></option>
+					</select>
+				</div>
+				<div class="col-md-3">
+					<div data-dojo-type="dojo/store/Memory"
+						data-dojo-id="conditionStore"
+						data-dojo-attach-point="conditionStore"></div>
+					<select data-dojo-type="dijit/form/ComboBox"
+						data-dojo-props="store:conditionStore, searchAttr:'name'"
+						data-dojo-attach-point="whereCondition"></select>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="collapseMenu box row ct-layout-grid container-fluid"
+			id="drawChart">
+			<button data-dojo-type="dijit/form/Button"
+				data-dojo-props="'class':'button'"
+				data-dojo-attach-event="onClick:applyChanges">Draw Chart</button>
+		</div>
+
+	</div>
+
+	<!--  <div class="box">	
+	<button data-dojo-type="dijit/form/Button" data-dojo-props="'class':'stylingButton'" 
+		data-dojo-attach-event="onClick:addData">Add JSON-Data</button>
+</div>-->
