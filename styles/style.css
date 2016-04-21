@@ -1,0 +1,71 @@
+#window{
+	overflow: auto;
+	top:0;
+	bottom:0;
+	position: absolute;
+	resize: both;
+}
+.chart{
+	resize: both;
+}
+.table{
+	border-spacing: 2px;
+	padding: 1px;
+}
+.button{
+	margin: 0px 2px 2px 2px;
+}
+p.tableHeading{
+	font-size: 120%;
+}
+
+#firstBox{
+	margin-top: 0em;
+	margin-bottom: 1em;
+}
+
+.box.row{
+/* 	margin-top: 1.2em;
+	margin-bottom: 1.2em; */
+	margin-left: 0em;
+	margin-right: 0em;
+}
+.collapsebox{
+	margin-top: 0em;
+	margin-bottom: 0em;
+}
+.chartBox{
+	padding-right: 0em;
+}
+#sortSelect{
+}
+.collapseMenu{
+	margin-top: 0.8em;
+}
+.firstMenu{
+	margin-top: 0.7em;
+}
+#where{
+	margin-top: 1em;
+}
+#chartControls{
+	display: none;
+	margin-bottom:1em;
+	padding: 1em;
+}
+#drawChart{
+	margin-top: 1.6em;
+}
+#settingsHeader{
+	margin-top: 0em;
+}
+.dijitContentPane.chartDIV{
+	padding: 0px;
+}
+#controls{
+	padding: 1px;
+}
+#xAxisTableHeading{
+	margin-top: 0em;
+    margin-bottom: 0em;
+}
