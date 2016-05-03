@@ -7,7 +7,7 @@ This bundle should be thought of as a beta or a preview.
 
 <h4>Features:</h4>
   - provides several types of charts
-  - automatically reads out registered AGS-feature layers from app.json and makes them available for charting
+  - automatically reads out known Ags-feature service layers and makes them available for charting
   - also takes in ArcGIS REST Service URL as input
   - allows for interaction with result center
     - visualised data can be selected by clicking on chart
