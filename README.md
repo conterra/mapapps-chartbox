@@ -8,11 +8,11 @@ This bundle should be thought of as a beta or a preview.
 <h4>Features:</h4>
   - provides several types of charts
   - automatically reads out known Ags-feature service layers and makes them available for charting
-  - also takes in ArcGIS REST Service URL as input
-  - allows for interaction with result center
+  - also takes in ArcGIS REST Service URLs as input
+  - allows for interaction with result center:
     - visualised data can be selected by clicking on chart
     - selection from result center can be taken to create a chart from it
-  - supports ArcGIS JS API's query functionallity
+  - supports ArcGIS JS API's query functionallity:
     - new data fields can be created using statistics (e.g. aggregration)
     - filters can be set
   - Charts can be viewed in a seperate window and saved as JPEGs
