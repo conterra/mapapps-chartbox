@@ -1,8 +1,7 @@
 <h2>chartbox Bundle</h2>
-The chartbox Bundle enables the user to build charts using data from ArcGIS Feature Services. It is built upon ESRI's Cedar, a JS library that allows for visualization and sharing of data on the Basis of D3 and the Vega visualization grammar.
+The chartbox Bundle enables the user to build charts with data from ArcGIS Feature Services. It is built upon <a href="http://esri.github.io/cedar/">ESRI's Cedar</a>, a JS library that allows for data visualization and sharing of making use of <a href="https://d3js.org/">D3</a> and <a href="https://vega.github.io/vega/">Vega</a>. 
 
-
-
+This bundle should be thought of as a beta or a preview.
 
 
 
@@ -17,10 +16,21 @@ The chartbox Bundle enables the user to build charts using data from ArcGIS Feat
     - new data fields can be created using statistics (e.g. aggregration)
     - filters can be set
   - Charts can be viewed in a seperate window and saved as JPEGs
+  
+<h4>Sample App:</h4>
+
+Under Construction...
+
+<h4>Instalation Guide:</h4>
+
+Under Construction...
 
 <h4>Dependencies:</h4>
   - D3
   - Vega
   - Cedar
+  
+<h4>Licensing</h4>
+Please see LICENSE files for information on licensing.
 
 
