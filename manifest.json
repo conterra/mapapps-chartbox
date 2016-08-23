@@ -1,0 +1,114 @@
+{
+  "Bundle-SymbolicName": "chartbox",
+  "Bundle-Version": "1.0",
+  "Bundle-Name": "${bundleName}",
+  "Bundle-Description": "${bundleDescription}",
+  "Bundle-Vendor": "con terra GmbH",
+  "Bundle-Category": [
+    "sample"
+  ],
+  "Bundle-Icon": {},
+  "Bundle-License": {},
+  "Require-Bundle": [
+    {
+      "name": "map"
+    },
+    {
+      "name": "resultcenter"
+    }
+  ],
+  "CSS-Themes-Extension": [
+    {
+      "name": "*",
+      "files": [
+        "./styles/style.css"
+      ]
+    }
+  ],
+  "layout-widgets": [
+    {
+      "role": "chartBox",
+      "window": {
+        "title": "ChartBox",
+        "marginBox": {
+          "h": 550,
+          "w": 820,
+          "r": 20,
+          "t": 100
+        },
+        "closable": true
+      }
+    }
+  ],
+  "Components": [
+    {
+      "name": "ChartBoxController",
+      "references": [
+        {
+          "name": "store",
+          "providing": "ct.api.Store",
+          "filter": "(id=Applications)"
+        },
+        {
+          "name": "resultCenterDataModel",
+          "providing": "ct.resultcenter.DataModel",
+          "propertiesConstructor": true
+        },
+        {
+          "name": "chartbox",
+          "providing": "chartbox.ChartBoxWidget"
+        },
+        {
+          "name": "MapServerLayerStoreFactory",
+          "providing": "chartbox.MapServerLayerStoreFactory"
+        },
+        {
+          "name": "SaveChartFactory",
+          "providing": "chartbox.SaveChartFactory"
+        }
+      ]
+    },
+    {
+      "name": "ChartBoxWidget",
+      "provides": [
+        "dijit.Widget",
+        "chartbox.ChartBoxWidget"
+      ],
+      "properties": {
+        "widgetRole": "chartBox"
+      },
+      "references": [
+        {
+          "name": "SaveChartFactory",
+          "providing": "chartbox.SaveChartFactory"
+        },
+        {
+          "name": "mapModel",
+          "providing": "ct.mapping.map.MapModel"
+        }
+      ]
+    },
+    {
+      "name": "MapServerLayerStoreFactory",
+      "provides": [
+        "chartbox.MapServerLayerStoreFactory"
+      ]
+    },
+    {
+      "name": "SaveChartFactory",
+      "provides": [
+        "dijit.Widget",
+        "chartbox.SaveChartFactory"
+      ],
+      "properties": {
+        "widgetRole": "saveChartFactory"
+      },
+      "references": [
+        {
+          "name": "windowManager",
+          "providing": "ct.framework.api.WindowManager"
+        }
+      ]
+    }
+  ]
+}
